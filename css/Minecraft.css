@@ -1,0 +1,79 @@
+#container {
+	position: relative;
+	outline:2px solid #000;
+	font-size: 0;
+	margin:auto;
+	height:500px;
+	width:500px;
+	padding: 0;
+	border: none;
+	background-color: lightblue;
+}
+
+.block {
+	margin:0;
+	padding:0;
+	border:none;
+	outline:1px solid #000;
+	display:inline-block;
+}
+
+#menu {
+	float: right;
+	width: 200px;
+	height: 500px;
+	border: solid black 1px;
+}
+
+.menuItem {
+	width: 80px;
+	height: 80px;
+	border: solid black 1px;
+	position: relative;
+
+}
+.menuImage {
+ 	width: 65px;
+	height: 65px;
+
+}
+
+
+.menuText {
+bottom: 0;
+text-align: center;
+vertical-align: middle;
+margin-top: -5px;
+}
+
+.dirt {
+	background-image: url('../images/dirt.png');
+background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+.grass {
+	background-image: url('../images/grass.png');
+background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+    .leaf {
+	background-image: url('../images/leaf.png');
+background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+
+     .tree {
+	background-image: url('../images/tree.png');
+background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+
+     .rock {
+	background-image: url('../images/rock.png');
+background-repeat: no-repeat;
+    background-size: cover;
+    }
