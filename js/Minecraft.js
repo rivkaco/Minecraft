@@ -23,9 +23,7 @@ minecraft.createBoard = function() {
          
             minecraft.block.eq(i*20+j)
                 .data("i",i)
-                .data("j",j).addClass(i+'-'+j); 
-
-                // data("j",j).addClass(i+'-'+j).click(clickOnCanvas); 
+                .data("j",j).addClass(i+'-'+j).click(minecraft.clickOnCanvas); 
         }
     }
 		
@@ -85,7 +83,7 @@ minecraft.createBoard = function() {
 minecraft.createMenu = function() {
 
 $('#menu').append(
-    $('<div/>', {'class': 'menuItem'}, {'id': 'pickaxe'}).on("click", minecraft.clickOnTool()).append(
+    $('<div/>', {'class': 'menuItem pickaxe'}).on("click", minecraft.clickOnTool).append(
         $('<div/>', {'class': 'menuMain'}).append(
             $('<div/>', {'id': 'menuPickaxe'})
         )
@@ -97,8 +95,9 @@ $('#menu').append(
     )
 );
 
+
 $('#menu').append(
-    $('<div/>', {'class': 'menuItem'}, {'id': 'axe'}).on("click", minecraft.clickOnTool()).append(
+    $('<div/>', {'class': 'menuItem axe'}).on("click", minecraft.clickOnTool).append(
         $('<div/>', {'class': 'menuMain'}).append(
             $('<div/>', {'id': 'menuAxe'})
         )
@@ -111,7 +110,7 @@ $('#menu').append(
 );
 
 $('#menu').append(
-    $('<div/>', {'class': 'menuItem'}, {'id': 'shovel'}).on("click", minecraft.clickOnTool()).append(
+    $('<div/>', {'class': 'menuItem shovel'}).on("click", minecraft.clickOnTool).append(
         $('<div/>', {'class': 'menuMain'}).append(
             $('<div/>', {'id': 'menuShovel'})
         )
@@ -124,84 +123,63 @@ $('#menu').append(
 );
 
 $('#menu').append(
-    $('<div/>', {'class': 'currentPixel'}).on("click", minecraft.clickOnTool())
+    $('<div/>', {'class': 'currentPixel'}).on("click", minecraft.clickOnTool)
  
 );
 
 
 };
 
-minecraft.imageOptions = ['dirt', 'grass', 'tree', 'leaf', 'rock'];
-minecraft.toolOptions = ['shovel', 'pickaxe', 'axe'];
 
 
-// minecraft.clickOnCanvas = function(){
-
-// 	for (var i = 0; i < minecraft.toolOptions.length; i++){
-// 		if (selectedTool.hasClass(i)){
-//     		minecraft.clickOnCanvasRemove();
-//     	}
-// 	} else {minecraft.clickOnCanvasAdd();}
-// }
-// minecraft.clickOnCanvasRemove = function(){
-	
-// 	var pixelClicked = $(this);
-
-// 	for (var i = 0; i < minecraft.imageOptions.length; i++){
-// 		if ((pixelClicked.hasClass('dirt') && selectedTool.hasClass('shovel'))|| (pixelClicked.hasClass('grass') && selectedTool.hasClass('shovel'))){
-// 			pixelClicked.removeClass('dirt');
-// 			pixelClicked.removeClass('grass');
-// 		}
-
-// 		else if ((pixelClicked.hasClass(i)) && selectedTool.hasClass('shovel')){
-// 			alert('You cannot use this tool here!');
-// 			return;
-// 		} 
-// 	}
-
-// 	if ( (pixelClicked.hasClass('tree')) && selectedTool.hasClass('pickaxe')) || (pixelClicked.hasClass('grass') && selectedTool.hasClass('pickaxe')) ){
-// 		alert('You cannot use this tool here!');
-// 		return;
-// 	}  
-// 	if (pixelClicked.hasClass('rock') && selectedTool.hasClass('pickaxe')){
-// 		pixelClicked.removeClass('rock');
-// 	}
-// 	if ( (pixelClicked.hasClass('grass')) && selectedTool.hasClass('axe')) || (pixelClicked.hasClass('rock') && selectedTool.hasClass('axe')) ){
-// 		alert('You cannot use this tool here!');
-// 		return;
-// 	}  
-// 	if (pixelClicked.hasClass('tree') && selectedTool.hasClass('axe')){
-// 		pixelClicked.removeClass('tree');
-// 	}
-	
-// }
-
-// minecraft.clickOnCanvasAdd = function (){
-// 	var pixelClicked = $(this);
-
-// 	if (pixelClicked.hasClass('tree') || pixelClicked.hasClass('grass') || pixelClicked.hasClass('rock')){
-// 		return;
-// 	}
-// 	else if (selectedTool.hasClass('shovel'));
-
-// }
-
+var $selectedTool = $();
+// minecraft.selectedTool = [];
 minecraft.clickOnTool = function(){
-	
 
-	// var selectedTool = $(this);
-	// selectedTool.addClass("selectedTool");
-	// console.log(selectedTool.attr("class"));
-	//returns same as get element by ID
+	selectedTool = $(this);
+	console.log(selectedTool);
 }
-//     // if (selectedTool.hasClass('shovel') || selectedTool.hasClass('pickaxe') || selectedTool.hasClass('axe')){
-//     // 	// minecraft.clickOnCanvasRemove();
-//     // }
 
-// //     if (selectedTool.hasClass('imageToUse')){
-// //     	selectedTool.addClass('')
-// //     	minecraft.clickOnCanvasAdd();
 
+minecraft.imageOptions = [['dirt', 'grass'], ['tree', 'leaf'], ['rock']];
+minecraft.toolOptions = ['shovel', 'axe', 'pickaxe', 'currentPixel'];
+
+minecraft.clickOnCanvas = function(){
+	
+	// 	if (selectedTool==-1){
+	// 			alert("yo");
+	// 		}
+
+		var pixelClicked = $(this);
+
+		if (selectedTool.hasClass(minecraft.toolOptions[3])) {
+			console.log("hello");
+			minecraft.clickOnCanvasAdd();
+		}
+		else {
+
+	for (var i = 0; i < minecraft.toolOptions.length-1; i++){
+		if (selectedTool.hasClass(minecraft.toolOptions[i])){
+			for (var j = 0; j < minecraft.imageOptions[i].length; j++){
+				if (pixelClicked.hasClass(minecraft.imageOptions[i][j])){
+				pixelClicked.removeClass(minecraft.imageOptions[i][j]);
+				$('.currentPixel').addClass(minecraft.imageOptions[i][j]);
+				}	
+			}
+		} 
+	}
+}
+};
+
+minecraft.clickOnCanvasAdd = function (){
+	// var pixelClicked = $(this);
+
+	// if (pixelClicked.hasClass('tree') || pixelClicked.hasClass('grass') || pixelClicked.hasClass('rock')){
+	// 	return;
+	// }
+	// else if (selectedTool.hasClass('shovel'));
+
+};
 
 $(document).ready(function () {
     minecraft.createBoard();
