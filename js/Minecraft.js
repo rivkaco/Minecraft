@@ -20,15 +20,10 @@ minecraft.createBoard = function() {
 
 	for(var i=0;i<minecraft.matrix.length;i++){
         for(var j=0;j<minecraft.matrix[i].length;j++){
-            //because gave boxes all the same class name, so here grabbing all that have classname boxes
-            // grabbing 9 boxes 
-            //.eq allows me to refer to indices of what i grabbed.
+         
             minecraft.block.eq(i*20+j)
                 .data("i",i)
-                .data("j",j).addClass(i+'-'+j); 
-
-                // .data("j",j).addClass(i+'-'+j).click(myFunc); 
-                //and here the myFunc will run when i click this cell. 
+                data("j",j).addClass(i+'-'+j).click(clickOnCanvas); 
         }
     }
 		
@@ -65,41 +60,69 @@ minecraft.createBoard = function() {
      $("."+13 + '-' +14).addClass("rock");
      $("."+13 + '-' +19).addClass("rock");
 
+     $("."+5 + '-' +6).addClass("cloud");
+     $("."+6 + '-' +4).addClass("cloud");
+     $("."+6 + '-' +5).addClass("cloud");
+     $("."+6 + '-' +6).addClass("cloud");
+     $("."+6 + '-' +7).addClass("cloud");
+     $("."+6 + '-' +9).addClass("cloud");
+     $("."+6 + '-' +10).addClass("cloud");
+     $("."+7 + '-' +3).addClass("cloud");
+     $("."+7 + '-' +4).addClass("cloud");
+     $("."+7 + '-' +5).addClass("cloud");
+     $("."+7 + '-' +6).addClass("cloud");
+     $("."+7 + '-' +7).addClass("cloud");
+     $("."+7 + '-' +8).addClass("cloud");
+     $("."+7 + '-' +9).addClass("cloud");
+     $("."+7 + '-' +10).addClass("cloud");
+     $("."+8 + '-' +7).addClass("cloud");
+     $("."+8 + '-' +8).addClass("cloud");
 
 };
 
-// minecraft.createMenu = function() {
- 
-//  $('<div>', { 
-//     id: 'outsidediv'
-// }).append( $('<div>', { 
-//     id: 'innerdiv'
-// })).appendTo('#menu');
-// // $('#menu').append(
-// //   $('<div/>')
-// //     .attr("id", "menuPickaxe")
-// //     .addClass("menuItem")
-// //     .append("<span/>")
-// //       .addClass("menuText")
-// //       .text("PICKAXE")
-// //   );
+minecraft.createMenu = function() {
 
-// // $('#menu').append(
-// //   $('<div/>')
-// //     .attr("id", "menuAxe")
-// //     .addClass("menuItem")
-// //   );
+$('#menu').append(
+    $('<div/>', {'class': 'menuItem'}).on("click", clickOnTool()).append(
+        $('<div/>', {'class': 'menuMain'}).append(
+            $('<div/>', {'id': 'menuPickaxe'})
+        )
+    )
+    .append(
+        $('<div/>', {'class': 'menuText'}).append(
+            $('<span/>', {text: 'PICKAXE'}, {'class':'menuText'})
+        )
+    )
+);
 
-// // $('#menu').append(
-// //   $('<div/>')
-// //     .attr("id", "menuShovel")
-// //     .addClass("menuItem")
-// //   );
+$('#menu').append(
+    $('<div/>', {'class': 'menuItem'}).on("click", clickOnTool()).append(
+        $('<div/>', {'class': 'menuMain'}).append(
+            $('<div/>', {'id': 'menuAxe'})
+        )
+    )
+    .append(
+        $('<div/>', {'class': 'menuText'}).append(
+            $('<span/>', {text: 'AXE'}, {'class':'menuText'})
+        )
+    )
+);
 
-
-// };
+$('#menu').append(
+    $('<div/>', {'class': 'menuItem'}).on("click", clickOnTool()).append(
+        $('<div/>', {'class': 'menuMain'}).append(
+            $('<div/>', {'id': 'menuShovel'})
+        )
+    )
+    .append(
+        $('<div/>', {'class': 'menuText'}).append(
+            $('<span/>', {text: 'SHOVEL'}, {'class':'menuText'})
+        )
+    )
+);
+};
 
 $(document).ready(function () {
     minecraft.createBoard();
-    // minecraft.createMenu();
+    minecraft.createMenu();
 });
