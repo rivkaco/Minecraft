@@ -1,10 +1,44 @@
-#container {
+
+body{
+	background-image: url('../images/sky1.gif');
+	background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#landingPage {
+	background-image: url('../images/dirt.png');
+	height: 700px;
+	width: 100%;
 	position: relative;
-	outline:2px solid #000;
+	}
+#logo {
+
+width: 300px;
+position: absolute;
+margin: 250px 0 0 500px;
+}
+
+#startButton {
+margin: 350px 0 0 600px;
+
+    border: 2px solid black;
+    background-color: slategray;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+}
+
+#container {
+	display: none;
+	position: relative;
+	box-shadow: 5px 5px 10px 0px rgba(50, 50, 50, 0.62);
 	font-size: 0;
 	margin:auto;
-	height:500px;
-	width:500px;
+	margin-top: 5%;
 	padding: 0;
 	border: none;
 	background-color: lightblue;
@@ -15,30 +49,34 @@
 	padding:0;
 	border:none;
 	display:inline-block;
+	background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #menu {
+	display: none;
 	float: right;
-	width: 200px;
-	height: 500px;
-	border: solid black 1px;
+	clear: left;
+	width: 90px;
+	height: 420px;
+	/*border: solid grey 2px;*/
+	margin-right: 1%;
+	margin-top: 3%;
+	box-shadow: 5px 5px 10px 0px rgba(50, 50, 50, 0.62);
+
 }
 
 .menuItem {
-	width: 90px;
+	width: 75px;
 	height: 90px;
-	border: solid black 1px;
+	margin: 6px;
 }
 
-/*.menuItem:active {
-   	background-color: blue;
-
-}*/
 #menuPickaxe {
  	width: 65px;
 	height: 65px;
 	background-image: url('../images/pickaxe.png');
-background-repeat: no-repeat;
+	background-repeat: no-repeat;
     background-size: cover;
 }
 
@@ -46,7 +84,7 @@ background-repeat: no-repeat;
  	width: 65px;
 	height: 65px;
 	background-image: url('../images/axe.png');
-background-repeat: no-repeat;
+	background-repeat: no-repeat;
     background-size: cover;
 }
 
@@ -54,53 +92,72 @@ background-repeat: no-repeat;
  	width: 65px;
 	height: 65px;
 	background-image: url('../images/shovel.png');
-background-repeat: no-repeat;
+	background-repeat: no-repeat;
     background-size: cover;
 }
+
 .currentPixel {
 	width: 40px;
 	height: 40px;
-		border: solid black 1px;
+	border: solid grey 2px;
+	background-repeat: no-repeat;
+    background-size: cover;
+    margin: 5px 5px 10px 24px;
+}
 
+.size {
+	background-color: transparent;
+}
+
+.plus {
+	margin: 10px 0 10px 21px;
+	background-color: transparent;
+}
+
+.minus {
+	background-color: transparent;
+}
+
+.newGame {
+	width: inherit;
+	text-align: center;
+	background-color: transparent;
+	border: none;
 }
 
 .menuText {
-margin-left: 10px;
+	margin-left: 10px;
 }
 
 .dirt {
 	background-image: url('../images/dirt.png');
-background-repeat: no-repeat;
-    background-size: cover;
-    }
+}
 
 .grass {
 	background-image: url('../images/grass.png');
-background-repeat: no-repeat;
-    background-size: cover;
-    }
+}
 
-    .leaf {
+.leaf {
 	background-image: url('../images/leaf.png');
-background-repeat: no-repeat;
-    background-size: cover;
-    }
+}
 
 
-     .tree {
+.tree {
 	background-image: url('../images/tree.png');
-background-repeat: no-repeat;
-    background-size: cover;
-    }
+}
 
 
-     .rock {
+.rock {
 	background-image: url('../images/rock.png');
-background-repeat: no-repeat;
-    background-size: cover;
-    }
+}
 
-         .cloud {
+.cloud {
 	background-color: white;
-    }
+}
+
+.highlight {
+	background-color: blue;
+	color: white;
+}
+
 
