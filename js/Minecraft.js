@@ -162,29 +162,29 @@ minecraft.createMenu = function() {
 
     $('#menu').append(
         $('<div/>', {'class': 'currentPixel dirt'}).on('click', minecraft.clickOnTool).append(
-            $('<span/>', {text: minecraft.inventory['dirt']}, {'class':'currentText'})
+            // $('<span/>', {text: minecraft.inventory['dirt']}, {'class':'currentText'})
             )
     );
 
     $('#menu').append(
         $('<div/>', {'class': 'currentPixel grass'}).on('click', minecraft.clickOnTool).append(
-            $('<span/>', {text: minecraft.inventory['grass']}, {'class':'currentText'})
+            // $('<span/>', {text: minecraft.inventory['grass']}, {'class':'currentText'})
             )
     );
 
     $('#menu').append(
         $('<div/>', {'class': 'currentPixel tree'}).on('click', minecraft.clickOnTool).append(
-            $('<span/>', {text: minecraft.inventory['tree']}, {'class':'currentText'})
+            // $('<span/>', {text: minecraft.inventory['tree']}, {'class':'currentText'})
             )
     );
     $('#menu').append(
         $('<div/>', {'class': 'currentPixel leaf'}).on('click', minecraft.clickOnTool).append(
-            $('<span/>', {text: minecraft.inventory['leaf']}, {'class':'currentText'})
+            // $('<span/>', {text: minecraft.inventory['leaf']}, {'class':'currentText'})
             )
     );
     $('#menu').append(
         $('<div/>', {'class': 'currentPixel rock'}).on('click', minecraft.clickOnTool).append(
-            $('<span/>', {text: minecraft.inventory['rock']}, {'class':'currentText'})
+            // $('<span/>', {text: minecraft.inventory['rock']}, {'class':'currentText'})
             )
     );
 
@@ -252,7 +252,6 @@ minecraft.clickOnCanvas = function(){
                 console.log('wrong');
                 minecraft.selectedTool.css('background-color', 'red');
             });
-
         }
     }
 };
@@ -269,6 +268,13 @@ minecraft.clickOnCanvasAdd = function (){
         if (minecraft.inventory[selectedToolClasses[1]] > 0){
             minecraft.pixelClicked.addClass(selectedToolClasses[1]);
             minecraft.inventory[selectedToolClasses[1]] --;
+            minecraft.inventoryUpdate = function() {
+                for (var key in minecraft.inventory) {
+                    minecraft.inventory[key].data = minecraft.inventory[pixelClickedClasses[2]];
+                    console.log(minecraft.inventory[key]);
+                    console.lo
+                }
+            }
         }
         else{ return;}
     }

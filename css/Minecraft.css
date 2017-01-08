@@ -114,8 +114,9 @@ body{
     text-align: center;
 }
 
-.currentText {
-
+.currentPixel.rock{
+	margin-left: 36%;
+	margin-right: 50%;
 }
 
 .button {
